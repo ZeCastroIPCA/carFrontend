@@ -1,0 +1,103 @@
+.login {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 7rem;
+    background-color: var(--background-color);
+}
+
+.login form {
+    width: 500px;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border-radius: 20px;
+}
+
+.user,
+.pass {
+    margin-top: 5%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user input,
+.pass input {
+    width: 400px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.forgot {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10%;
+}
+
+.forgot p {
+    cursor: pointer;
+    font-size: 0.9rem;
+    color: var(--outline-color);
+}
+
+.login-btn {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.login-btn button {
+    width: 100%;
+    height: 50px;
+    color: var(--button-text-color);
+    background-color: var(--button-color);
+    box-shadow: 0px 0px 10px 0px var(--button-text-color);
+}
+
+.login-btn button:hover {
+    box-shadow: 0px 0px 5px 0px var(--button-color);
+}
+
+.login-btn a {
+    color: var(--button-color);
+    margin-top: 1rem;
+}
+
+.login-btn a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .login {
+        padding-top: 5rem;
+    }
+
+    .login form {
+        width: 90%;
+    }
+
+    .user input,
+    .pass input {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .login-btn button {
+        width: 100%;
+        min-width: 180px;
+    }
+}

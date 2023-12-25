@@ -1,0 +1,175 @@
+.home {
+  width: calc(100% - 220px);
+  height: 100%;
+  background-color: var(--whitesmoke);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: auto;
+}
+
+.home > h3 {
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 2rem 0 0 5%;
+}
+
+.sheet {
+  width: 90%;
+  background-color: var(--white);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 2rem 0;
+  user-select: none;
+}
+
+.store-identification, .client-identification, .product-identification, .photo-identification, .complaint {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 10px solid var(--outline-color);
+  position: relative;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.store-identification {
+  border-radius: 10px;
+}
+
+.photo-identification {
+  height: 200px;
+}
+
+.complaint {
+  height: 300px;
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 35% 65%;
+  grid-template-areas: 'freq type numwash' 'obs obs button';
+  padding: 50px 1rem 0 1rem;
+}
+
+.store-identification-title-rectangle, .client-identification-title-rectangle, .product-identification-title-rectangle, .photo-identification-title-rectangle, .complaint-title-rectangle {
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  display: grid;
+  place-content: center;
+  background-color: var(--outline-color);
+  border-radius: 10px;
+  width: 300px;
+  height: 50px;
+}
+
+.store-identification-title-rectangle > h4, .client-identification-title-rectangle > h4, .product-identification-title-rectangle > h4, .photo-identification-title-rectangle > h4, .complaint-title-rectangle > h4 {
+  color: var(--white);
+  font-weight: 600;
+}
+
+.store-identification div:not(:first-child), .client-identification div:not(:first-child), .product-identification div:not(:first-child), .photo-identification div:not(:first-child), .complaint div:not(:first-child) {
+  width: 30%;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.photo-identification div:not(:first-child) {
+  width: 100%;
+  height: 135px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.complaint div:not(:first-child) {
+  width: 100%;
+}
+
+.complaint .use-frequence {
+  grid-area: freq;
+}
+
+.complaint .use-type {
+  grid-area: type;
+}
+
+.complaint .use-frequence select, .complaint .use-type select {
+  width: 90%;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid var(--outline-color);
+  outline: none;
+  padding: 0 10px;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--black);
+  cursor: pointer;
+}
+
+.complaint .number-of-washes {
+  grid-area: numwash;
+}
+
+.complaint .complaint-description {
+  grid-area: obs;
+  height: 100% !important;
+}
+
+.complaint .complaint-description > textarea {
+  width: 90%;
+  height: 80%;
+  resize: none;
+  border-radius: 10px;
+  border: 1px solid var(--outline-color);
+  padding: 10px;
+  outline: none;
+}
+
+.complaint .save-button {
+  grid-area: button;
+  width: 200px;
+  height: 80px;
+  background-color: var(--green);
+  color: var(--white);
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.store-identification div:not(:first-child) input, .client-identification div:not(:first-child) input, .product-identification div:not(:first-child) input, .complaint div:not(:first-child) input {
+  width: 90%;
+  height: 30px;
+  font-size: 1rem;
+}
+
+.photo-identification div:not(:first-child) label {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: 2px dashed var(--outline-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+}
+
+.photo-identification div:not(:first-child) label input {
+  display: none;
+}
+
+.photo-identification div:not(:first-child) button {
+  margin-left: 1rem;
+  width: 150px;
+  height: 100%;
+  background-color: var(--background-color);
+}

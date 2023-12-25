@@ -1,0 +1,171 @@
+.home {
+    width: calc(100% - 220px);
+    height: 100%;
+    background-color: var(--whitesmoke);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: auto;
+    position: relative;
+}
+
+.nav-bar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 0 5%;
+}
+
+.search {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search>input {
+    width: 300px;
+    height: 40px;
+    border: 1px solid var(--background-color);
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    margin-right: 1rem;
+}
+
+.search>button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: var(--secundary-color);
+    color: var(--white);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.filter {
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: var(--secundary-color);
+    color: var(--white);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.filters-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.filters-blocker {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.filters {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 600px;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+    padding: 1rem 3rem;
+    z-index: 2;
+}
+
+.filters>h3 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 600;
+    margin-top: 2.5rem;
+}
+
+.filters .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    border: none;
+    background-color: var(--red);
+    color: var(--outline-color);
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.phone-field, .date-field, .worker-field, .status-field, .store-field {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.phone-field>h4, .date-field>h4, .worker-field>h4, .status-field>h4, .store-field>h4 {
+    font-weight: 600;
+    margin-right: 1rem;
+}
+
+.phone-field>input, .date-field>input, .worker-field>select, .status-field>select, .store-field>select {
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--whitesmoke);
+    font-size: 1.1rem;
+    font-weight: 300;
+    padding: 0 1rem;
+    border-radius: 10px;
+    
+}
+
+.phone-field>input::placeholder {
+    color: var(--black);
+}
+
+.button-div {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-div>button {
+    width: 150px;
+    height: 70px;
+    border: none;
+    background-color: var(--outline-color);
+    color: var(--white);
+    font-weight: 600;
+}

@@ -1,0 +1,24 @@
+.four-oh-four {
+    width: calc(100% - 220px);
+    height: 100%;
+    background-color: var(--background-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+}
+
+.four-oh-four h1 {
+    font-size: 10rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin: 0;
+}
+
+.four-oh-four h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dark-gray);
+    margin: 0;
+}

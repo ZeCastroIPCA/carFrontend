@@ -1,0 +1,168 @@
+.register {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+    padding: 3rem 0;
+    background-color: var(--background-color);
+}
+
+.register form {
+    width: 500px;
+    min-height: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 100%;
+    max-height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo img {
+    height: 100%;
+    filter: invert(1);
+}
+
+.description {
+    width: 100%;
+    height: 7%;
+    display: grid;
+    place-items: center;
+}
+
+.description p {
+    font-size: 1.2rem;
+    color: var(--outline-color);
+}
+
+.store,
+.email,
+.pass1,
+.confirm-pass {
+    margin-top: 0.8rem;
+    width: 70%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.store input,
+.email input,
+.pass1 input,
+.confirm-pass input {
+    width: 100%;
+    height: 100%;
+}
+
+.terms {
+    margin: 1rem 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms a {
+    font-weight: initial;
+    text-decoration: underline;
+    color: var(--outline-color);
+}
+
+.terms input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.register-btn {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-btn button {
+    width: 50%;
+    height: 100%;
+    color: var(--button-text-color);
+    background-color: var(--button-color);
+    box-shadow: 0px 0px 10px 0px var(--button-text-color);
+}
+
+.register-btn button:hover {
+    box-shadow: 0px 0px 5px 0px var(--button-color);
+}
+
+@media (max-width: 768px) {
+    .register {
+        justify-content: center;
+    }
+
+    .back-button {
+        display: none;
+    }
+
+    .register form {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .logo {
+        max-height: 25%;
+    }
+
+    .description {
+        height: 5%;
+    }
+
+    .description p {
+        font-size: 1rem;
+    }
+
+    .store,
+    .email,
+    .pass1,
+    .confirm-pass {
+        width: 80%;
+        height: 40px;
+    }
+
+    .store input,
+    .email input,
+    .pass1 input,
+    .confirm-pass input {
+        font-size: 1rem;
+    }
+
+    .terms {
+        height: 30px;
+    }
+
+    .terms p {
+        font-size: 1rem;
+    }
+
+    .terms a {
+        font-size: 1rem;
+    }
+
+    .register-btn {
+        height: 40px;
+    }
+
+    .register-btn button {
+        width: 60%;
+        font-size: 1rem;
+    }
+}
