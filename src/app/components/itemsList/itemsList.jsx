@@ -17,47 +17,26 @@ function ItemsList({ linesPerPage, items }) {
     setCurrentPage(newPage);
   };
 
-  //translate date to readable format
-  function formatDate(date) {
-    var d = new Date(date),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = '' + d.getFullYear();
-
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-
-    return [day, month, year].join('/');
-  }
-
   return (
-    <div className='items-table'>
+    <div className='grid'>
       {items.length > 0 ? (
         currentItems.map((props) => (
           <div
-            className='content-line'
-            key={props._id}
-            onClick={() => {
-              if (window.location.pathname.split('/')[2] == 'consultar') {
-                navigate('/defeitos/consultar/' + props._id);
-              } else {
-                navigate('consultar/' + props._id);
-              }
-            }}
+            className='car'
+            key={props.id}
           >
-            <p>{props.id}</p>
-            <p>{formatDate(props.date)}</p>
-            <p>{props.client}</p>
-            <p>{props.worker}</p>
-            <p>{props.state}</p>
+            <h1>{props.make}</h1>
+            <h2>{props.model}</h2>
+            <p>{props.year}</p>
+            <p>{props.price}$</p>
           </div>
         ))
       ) : (
         <div className='empty-line'>
-          <p>Não existem items</p>
+          <p>Não existem carros de exposição no momento</p>
         </div>
       )}
-      {items.lenght > 0 && (
+      {items.length > 0 && (
         <div className='items-button-box'>
           <button disabled={currentPage === 1} onClick={() => handlePageChange(currentPage - 1)}>
             <FontAwesomeIcon icon={faArrowLeft} size='1x' color='black' />

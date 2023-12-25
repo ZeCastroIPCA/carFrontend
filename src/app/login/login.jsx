@@ -1,7 +1,7 @@
 import './login.css';
 import { useContext } from 'react';
 import '../App.css';
-import logo from '../../assets/images/logo.webp';
+import logo from '../../assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { APIContext } from '../contexts/context';
 import { auth, signInWithEmailAndPassword } from '../../firebase';
@@ -18,7 +18,7 @@ function Login() {
     const password = data.get('pass');
 
     try {
-      const signIn = await signInWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
       // Handle successful login
       navigate('/dash');
     } catch (error) {

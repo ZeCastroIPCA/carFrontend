@@ -15,10 +15,11 @@ nav .logo {
     display: grid;
     place-items: center;
     margin-top: 20px;
+    position: relative;
 }
 
 .nav img {
-    width: 150px;
+    height: 130px;
 }
 
 nav .links {
@@ -44,6 +45,7 @@ nav .links {
     margin-top: 1rem;
     font-size: 1.5rem;
     font-weight: 600;
+    text-align: center;
 }
 
 .links a:hover {

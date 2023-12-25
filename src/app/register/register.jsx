@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import './register.css';
-import logo from '../../assets/images/logo.webp';
+import logo from '../../assets/images/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';

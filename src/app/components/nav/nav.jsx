@@ -1,5 +1,5 @@
 import './nav.css';
-import logo from '../../../assets/images/logo.webp';
+import logo from '../../../assets/images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/authContext';
 
@@ -31,27 +31,14 @@ function Nav({ userName }) {
       </div>
       <div className='links'>
         <a href='/dash' style={tab === '/dash' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}>
-          Inicio
+          Carros
         </a>
         <a
-          href='/dash/receipts'
-          style={tab === '/dash/receipts' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}
+          href='/dash/adicionar'
+          style={tab === '/dash/adicionar' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}
         >
-          Faturas
+          Adicionar
         </a>
-        <a
-          href='/dash/inventory'
-          style={tab === '/dash/inventory' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}
-        >
-          Inventário
-        </a>
-        {currentUser.photoURL === 'admin' && (<a
-          href='/dash/admin'
-          id='adminTab'
-          style={tab === '/dash/admin' ? { backgroundColor: 'var(--secundary-color)', color: 'white' } : {}}
-        >
-          Admin
-        </a>)}
       </div>
       <div className='footer'>
         <p>{userName}</p>
