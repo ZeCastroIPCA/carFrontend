@@ -5,9 +5,8 @@ import { useAuth } from '../contexts/authContext';
 import Nav from '../components/nav/nav';
 import Home from '../pages/home/home';
 import Create from '../pages/create/create';
-import Search from '../pages/search/search';
-import PageNotFound from '../pages/pageNotFound/pageNotFound';
 import Alter from '../pages/alter/alter';
+import PageNotFound from '../pages/pageNotFound/pageNotFound';
 
 function Dash() {
   // navigate hook
@@ -27,7 +26,8 @@ function Dash() {
       {currentUser && (
         <Routes>
           <Route exact path='/' element={<Home />} />
-          <Route exact path='/adicionar' element={<Create />} />
+          {currentUser.photoURL === 'admin' && <Route path='/adicionar' element={<Create />} />}
+          {currentUser.photoURL === 'admin' && <Route path='/alterar/:id' element={<Alter />} />}
           <Route path='/404' element={<PageNotFound />} />
           <Route exact path='*' element={<PageNotFound />} />
         </Routes>

@@ -13,7 +13,7 @@ function Nav({ userName }) {
   // auth context
   const { currentUser } = useAuth();
 
-  //logout 
+  //logout
   const { signOut } = useAuth();
   const handleLogout = async () => {
     try {
@@ -22,7 +22,7 @@ function Nav({ userName }) {
     } catch (error) {
       console.error(error.message);
     }
-  }
+  };
 
   return (
     <nav className='nav'>
@@ -33,12 +33,14 @@ function Nav({ userName }) {
         <a href='/dash' style={tab === '/dash' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}>
           Carros
         </a>
-        <a
-          href='/dash/adicionar'
-          style={tab === '/dash/adicionar' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}
-        >
-          Adicionar
-        </a>
+        {currentUser && currentUser.photoURL === 'admin' && (
+          <a
+            href='/dash/adicionar'
+            style={tab === '/dash/adicionar' ? { backgroundColor: 'var(--main-color)', color: 'white' } : {}}
+          >
+            Adicionar
+          </a>
+        )}
       </div>
       <div className='footer'>
         <p>{userName}</p>

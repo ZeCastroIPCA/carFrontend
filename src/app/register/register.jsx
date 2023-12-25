@@ -26,7 +26,7 @@ function Register() {
         // Update user name
         await updateProfile(createUser.user, {
           displayName: name,
-          photoURL: 'admin',
+          photoURL: 'user',
         });
         alert('Conta criada com sucesso!');
         const signIn = await signInWithEmailAndPassword(auth, email, password);
@@ -88,7 +88,7 @@ function Register() {
           <p>
             Aceito os{' '}
             <a
-              href='https://darkstylepeliculas.com/politica-de-privacidade/'
+              href='https://www.google.pt'
               target='_blank'
               rel='noopener noreferrer'
               className='terms-link'

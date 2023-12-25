@@ -6,6 +6,7 @@ import { faArrowLeft, faArrowRight, faEdit, faTrash } from '@fortawesome/free-so
 import axios from 'axios';
 import ReactLoading from 'react-loading';
 import { APIContext } from '../../contexts/context';
+import { useAuth } from '../../contexts/authContext';
 
 function ItemsList({ linesPerPage, items }) {
   // navigate hook
@@ -23,10 +24,14 @@ function ItemsList({ linesPerPage, items }) {
   // Loading state
   const [loading, setLoading] = useState(false);
 
+  // auth context
+  const { currentUser } = useAuth();
+
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
 
+  // delete car
   const handleDelete = (id) => {
     setLoading(true);
     axios
@@ -41,7 +46,7 @@ function ItemsList({ linesPerPage, items }) {
         alert('Erro ao apagar o carro!');
         window.location.reload();
       });
-  }
+  };
 
   if (loading) {
     return <ReactLoading className='loading' style={loading ? { display: '' } : { display: 'none' }} type={'spin'} />;
@@ -51,16 +56,21 @@ function ItemsList({ linesPerPage, items }) {
     <div className='grid'>
       {items.length > 0 ? (
         currentItems.map((props) => (
-          <div
-            className='car'
-            key={props.id}
-          >
-            <h1>{props.make}</h1>
-            <h2>{props.model}</h2>
-            <p>{props.year}</p>
-            <p>{props.price}$</p>
-            <button className='trash-btn' onClick={() => handleDelete(props.id)}><FontAwesomeIcon icon={faTrash} size='1x' /></button>
-            <button className='alter-btn' onClick={() => handleDelete(props.id)}><FontAwesomeIcon icon={faEdit} size='1x' /></button>
+          <div className='car' key={props.id}>
+            <h1 className='props-text'>{props.make}</h1>
+            <h2 className='props-text'>{props.model}</h2>
+            <p className='props-text'>{props.year}</p>
+            <p className='props-text'>{props.price}$</p>
+            {currentUser && currentUser.photoURL === 'admin' && (
+              <button className='trash-btn' onClick={() => handleDelete(props.id)}>
+                <FontAwesomeIcon icon={faTrash} size='1x' />
+              </button>
+            )}
+            {currentUser && currentUser.photoURL === 'admin' && (
+              <button className='alter-btn' onClick={() => navigate('/dash/alterar/' + props.id)}>
+                <FontAwesomeIcon icon={faEdit} size='1x' />
+              </button>
+            )}
           </div>
         ))
       ) : (

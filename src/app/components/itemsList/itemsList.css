@@ -76,6 +76,14 @@
     right: 10px;
 }
 
+.car .props-input {
+    display: none;
+}
+
+.car .props-text {
+    display: block;
+}
+
 .empty-line {
     width: 100%;
     height: 100%;
