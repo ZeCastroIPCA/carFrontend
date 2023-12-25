@@ -1,11 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './itemsList.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight, faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
+import ReactLoading from 'react-loading';
+import { APIContext } from '../../contexts/context';
 
 function ItemsList({ linesPerPage, items }) {
+  // navigate hook
   const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.ceil(items.length / linesPerPage);
 
@@ -13,9 +18,34 @@ function ItemsList({ linesPerPage, items }) {
   const indexOfFirstItem = indexOfLastItem - linesPerPage;
   const currentItems = items.slice(indexOfFirstItem, indexOfLastItem);
 
+  // context
+  const context = useContext(APIContext);
+  // Loading state
+  const [loading, setLoading] = useState(false);
+
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
+  const handleDelete = (id) => {
+    setLoading(true);
+    axios
+      .delete(context.api + id, context.headersCRUD)
+      .then((response) => {
+        setLoading(false);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+        alert('Erro ao apagar o carro!');
+        window.location.reload();
+      });
+  }
+
+  if (loading) {
+    return <ReactLoading className='loading' style={loading ? { display: '' } : { display: 'none' }} type={'spin'} />;
+  }
 
   return (
     <div className='grid'>
@@ -29,6 +59,8 @@ function ItemsList({ linesPerPage, items }) {
             <h2>{props.model}</h2>
             <p>{props.year}</p>
             <p>{props.price}$</p>
+            <button className='trash-btn' onClick={() => handleDelete(props.id)}><FontAwesomeIcon icon={faTrash} size='1x' /></button>
+            <button className='alter-btn' onClick={() => handleDelete(props.id)}><FontAwesomeIcon icon={faEdit} size='1x' /></button>
           </div>
         ))
       ) : (
