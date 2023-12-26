@@ -76,12 +76,12 @@
     right: 10px;
 }
 
-.car .props-input {
-    display: none;
+.car .car-price {
+    cursor: pointer;
 }
 
-.car .props-text {
-    display: block;
+.car .car-price:hover {
+    text-decoration: underline;
 }
 
 .empty-line {

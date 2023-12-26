@@ -48,6 +48,21 @@ function ItemsList({ linesPerPage, items }) {
       });
   };
 
+  // get price
+  const handleGetPrice = (e, price) => {
+    e.preventDefault();
+    axios
+      .get(context.exchangeApi, context.headersCRUD)
+      .then((response) => {
+        const conversionRate = response.data.data.EUR;
+        alert('Preço em euros: ' + Math.round(conversionRate * price) + '€');
+      })
+      .catch((error) => {
+        console.log(error);
+        alert('Erro ao converter o preço!');
+      });
+  }
+
   if (loading) {
     return <ReactLoading className='loading' style={loading ? { display: '' } : { display: 'none' }} type={'spin'} />;
   }
@@ -57,10 +72,10 @@ function ItemsList({ linesPerPage, items }) {
       {items.length > 0 ? (
         currentItems.map((props) => (
           <div className='car' key={props.id}>
-            <h1 className='props-text'>{props.make}</h1>
-            <h2 className='props-text'>{props.model}</h2>
-            <p className='props-text'>{props.year}</p>
-            <p className='props-text'>{props.price}$</p>
+            <h1>{props.make}</h1>
+            <h2>{props.model}</h2>
+            <p>{props.year}</p>
+            <p className='car-price' onClick={(e)=>handleGetPrice(e, props.price)}>{props.price}$</p>
             {currentUser && currentUser.photoURL === 'admin' && (
               <button className='trash-btn' onClick={() => handleDelete(props.id)}>
                 <FontAwesomeIcon icon={faTrash} size='1x' />
